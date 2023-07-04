@@ -1,0 +1,66 @@
+
+Professor {
+	Id_professor integer pk
+	id_grupo integer > Grupo.id_grupo
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
+}
+
+Grupo {
+	id_grupo int pk
+	id_universidade int(20) *> Universidade.id_universidade
+	nome varchar(20)
+	resultado integer(5) def(0)
+}
+
+Incrito {
+	id_inscrito integer pk
+	id_grupo integer pk *> Grupo.id_grupo
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
+}
+
+Universidade {
+	id_universidade integer(1) pk
+	nome varchar(50)
+	cep varchar(8)
+	rua varchar(20)
+	bairo varchar(20)
+	numero varchar(5)
+}
+
+Aplicador {
+	id_aplicador integer pk increments
+	id_universidade integer pk *> Universidade.id_universidade
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
+}
+
+Desafio {
+	id_desafio integer pk increments
+	id_resultado integer pk *> Resultado.id_resultado
+	nome varchar(50)
+	descricao varchar(500)
+	nivel_dificuldade integer(2)
+}
+
+Juiz {
+	id_juiz int pk
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
+}
+
+aplicador_por {
+	id_desafio integer pk *> Desafio.id_desafio
+	id_aplicador integer pk *> Aplicador.id_aplicador
+}
+
+juiz_avalia {
+	id_juiz integer pk *> Juiz.id_juiz
+	id_desafio integer pk *> Desafio.id_desafio
+}
+
