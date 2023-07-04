@@ -16,7 +16,7 @@ Grupo {
 
 Incrito {
 	id_inscrito integer pk
-	id_grupo integer pk *> Grupo.id_grupo
+	id_grupo integer *> Grupo.id_grupo
 	nome varchar(50)
 	email varchar(30)
 	telefone varchar(14)
@@ -41,17 +41,9 @@ Aplicador {
 
 Desafio {
 	id_desafio integer pk increments
-	id_resultado integer pk *> Resultado.id_resultado
+	id_nivel_dificuldade integer *> Nivel_dificuldade.id_nivelDif
 	nome varchar(50)
 	descricao varchar(500)
-	nivel_dificuldade integer(2)
-}
-
-Juiz {
-	id_juiz int pk
-	nome varchar(50)
-	email varchar(30)
-	telefone varchar(14)
 }
 
 aplicador_por {
@@ -62,5 +54,23 @@ aplicador_por {
 juiz_avalia {
 	id_juiz integer pk *> Juiz.id_juiz
 	id_desafio integer pk *> Desafio.id_desafio
+}
+
+Juiz {
+	id_juiz int pk
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
+}
+
+Grupo_participa_desafio {
+	id_grupo integer pk *> Grupo.id_grupo
+	id_desafio integer pk *> Desafio.id_desafio
+}
+
+Nivel_dificuldade {
+	id_nivelDif integer pk null increments
+	pontos_nivel integer(3)
+	dificuldade varchar(10)
 }
 
