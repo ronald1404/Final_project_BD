@@ -46,9 +46,10 @@ Desafio {
 	descricao varchar(500)
 }
 
-aplicador_por {
+aplicado_por {
 	id_desafio integer pk *> Desafio.id_desafio
 	id_aplicador integer pk *> Aplicador.id_aplicador
+	id_universidade integer pk *> Aplicador.id_universidade
 }
 
 juiz_avalia {
