@@ -69,12 +69,12 @@ create table Nivel_Dificuldade(
 );
 create table Desafio(
     id_desafio number not null,
-    id_nivel_dificuldadade number not null,
+    id_nivel_dificuldade number not null,
     nome varchar2(50),
     descricao varchar2(500),
     constraints pk_desafio primary key (id_desafio),
     constraints fk_desafio_nivel_dificuldade
-    foreign key (id_nivel_dificuldadade)
+    foreign key (id_nivel_dificuldade)
     references Nivel_Dificuldade(id_nivel_dificuldade)
 );
 create table Grupo_Participa_desafio(
@@ -142,8 +142,8 @@ VALUES (202304, 4, 4, 'Grupo D');
 -- Inserindo Grupo E
 INSERT INTO Grupo (id_grupo, id_universidade, resultado, nome)
 VALUES (202305, 5, 5, 'Grupo E');
+
 -- Inserindo os 25 inscritos nos grupos
--- Substitua <id_grupo> pelos IDs corretos de cada grupo
 
 -- Inscritos para o Grupo 1
 INSERT INTO Inscrito (id_inscrito, id_grupo, nome, email, telefone)
@@ -205,6 +205,298 @@ VALUES (24,202305, 'Inscrito 24', 'inscrito24@example.com', '2424242424');
 INSERT INTO Inscrito (id_inscrito, id_grupo, nome, email, telefone)
 VALUES (25,202305, 'Inscrito 25', 'inscrito25@example.com', '2525252525');
 
+
+
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+values (100,202301,'Professor A','professorA@example.com',12344321);
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (101, 202301, 'Professor B', 'professorB@example.com', '98765432');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (102, 202302, 'Professor C', 'professorC@example.com', '56781234');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (103, 202302, 'Professor D', 'professorD@example.com', '24681357');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (104, 202303, 'Professor E', 'professorE@example.com', '13572468');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (105, 202304, 'Professor F', 'professorF@example.com', '87654321');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (106, 202305, 'Professor G', 'professorG@example.com', '43218765');
+
+INSERT INTO Professor (id_professor, id_grupo, nome, email, telefone)
+VALUES (107, 202305, 'Professor H', 'professorH@example.com', '98761234');
+
+INSERT INTO Aplicador_1 (id_aplicador, nome, email, telefone)
+values (0001, 'Aplicador 01', 'aplicador01@example.com','123758304');
+INSERT INTO Aplicador (id_aplicador, id_universidade)
+values (0001, 1);
+
+INSERT INTO Aplicador_1 (id_aplicador, nome, email, telefone)
+VALUES (0002, 'Aplicador 02', 'aplicador02@example.com', '987654321');
+INSERT INTO Aplicador (id_aplicador, id_universidade)
+VALUES (0002, 2);
+
+INSERT INTO Aplicador_1 (id_aplicador, nome, email, telefone)
+VALUES (0003, 'Aplicador 03', 'aplicador03@example.com', '654987321');
+INSERT INTO Aplicador (id_aplicador, id_universidade)
+VALUES (0003, 3);
+
+INSERT INTO Aplicador_1 (id_aplicador, nome, email, telefone)
+VALUES (0004, 'Aplicador 04', 'aplicador04@example.com', '123456789');
+INSERT INTO Aplicador (id_aplicador, id_universidade)
+VALUES (0004, 4);
+
+INSERT INTO Aplicador_1 (id_aplicador, nome, email, telefone)
+VALUES (0005, 'Aplicador 05', 'aplicador05@example.com', '987654123');
+INSERT INTO Aplicador (id_aplicador, id_universidade)
+VALUES (0005, 5);
+
+INSERT INTO juiz (id_juiz, nome, email, telefone)
+values (201, 'Juiz A', 'juizA@example.com','860173923');
+
+INSERT INTO Juiz (id_juiz, nome, email, telefone)
+VALUES (202, 'Juiz B', 'juizB@example.com', '987654321');
+
+INSERT INTO Juiz (id_juiz, nome, email, telefone)
+VALUES (203, 'Juiz C', 'juizC@example.com', '123456789');
+
+INSERT INTO Juiz (id_juiz, nome, email, telefone)
+VALUES (204, 'Juiz D', 'juizD@example.com', '987654123');
+
+INSERT INTO Juiz (id_juiz, nome, email, telefone)
+VALUES (205, 'Juiz E', 'juizE@example.com', '123987654');
+
+-- 1 -> fácil, 2 -> médio, 3 -> difícil
+INSERT INTO Nivel_Dificuldade (id_nivel_dificuldade, pontos_nivel, dificuldade)
+VALUES (1, 4, 'facil');
+INSERT INTO Nivel_Dificuldade (id_nivel_dificuldade, pontos_nivel, dificuldade)
+VALUES (2, 5, 'facil');
+INSERT INTO Nivel_Dificuldade (id_nivel_dificuldade, pontos_nivel, dificuldade)
+VALUES (3, 6, 'medio');
+INSERT INTO Nivel_Dificuldade (id_nivel_dificuldade, pontos_nivel, dificuldade)
+VALUES (4, 7, 'medio');
+INSERT INTO Nivel_Dificuldade (id_nivel_dificuldade, pontos_nivel, dificuldade)
+VALUES (5, 10, 'dificil');
+
+-- Inserção desafios
+INSERT INTO Desafio (id_desafio, id_nivel_dificuldade, nome, descricao)
+values (1,2,'Desafio 1', 'Descricao desafio 1');
+
+INSERT INTO Desafio (id_desafio, id_nivel_dificuldade, nome, descricao)
+VALUES (2, 1, 'Desafio 2', 'Descrição desafio 2');
+
+INSERT INTO Desafio (id_desafio, id_nivel_dificuldade, nome, descricao)
+VALUES (3, 3, 'Desafio 3', 'Descrição desafio 3');
+
+INSERT INTO Desafio (id_desafio, id_nivel_dificuldade, nome, descricao)
+VALUES (4, 2, 'Desafio 4', 'Descrição desafio 4');
+
+INSERT INTO Desafio (id_desafio, id_nivel_dificuldade, nome, descricao)
+VALUES (5, 1, 'Desafio 5', 'Descrição desafio 5');
+
+
+-- grupo_participa_desafio
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202301,1);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202301,2);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202301,3);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202301,5);
+
+
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202302,1);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202302,2);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202302,3);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202302,4);
+
+
+
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202303,2);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202303,3);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202303,4);
+
+
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202304,1);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202304,3);
+
+
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202305,1);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202305,2);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202305,3);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202305,4);
+INSERT INTO Grupo_Participa_desafio (id_grupo,id_desafio)
+VALUES (202305,5);
+
+
+-- Inserção da tabela de aplicação de desafio
+
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (1,0001, 1);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (2,0001, 1);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (3,0001, 1);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (4,0001, 1);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (5,0001, 1);
+
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (1,0002, 2);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (2,0002, 2);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (3,0002, 2);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (4,0002, 2);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (5,0002, 2);
+
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (1,0003, 3);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (2,0003, 3);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (3,0003, 3);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (4,0003, 3);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (5,0003, 3);
+
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (1,0004, 4);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (2,0004, 4);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (3,0004, 4);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (4,0004, 4);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (5,0004, 4);
+
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (1,0005, 5);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (2,0005, 5);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (3,0005, 5);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (4,0005, 5);
+INSERT INTO Aplicado_por(id_desafio, id_aplicador, id_universidade)
+VALUES (5,0005, 5);
+
+
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (201, 1, 4);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (201, 2, 5);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (201, 3, 6);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (201, 4, 7);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (201, 5, 10);
+
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (202, 1, 4);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (202, 2, 5);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (202, 3, 6);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (202, 4, 7);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (202, 5, 10);
+
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (203, 1, 4);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (203, 2, 5);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (203, 3, 6);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (203, 4, 7);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (203, 5, 10);
+
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (204, 1, 4);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (204, 2, 5);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (204, 3, 6);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (204, 4, 7);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (204, 5, 10);
+
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (205, 1, 4);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (205, 2, 5);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (205, 3, 6);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (205, 4, 7);
+INSERT INTO juiz_avalia(id_juiz, id_desafio, nota)
+VALUES (205, 5, 10);
+
+UPDATE Grupo g SET resultado = (
+    SELECT SUM(nota) FROM juiz_avalia where id_desafio IN(
+        SELECT id_desafio FROM Grupo_Participa_desafio WHERE id_grupo = g.id_grupo
+    ))WHERE id_grupo = 202301;
+
+UPDATE Grupo g SET resultado = (
+    SELECT SUM(nota) FROM juiz_avalia where id_desafio IN(
+        SELECT id_desafio FROM Grupo_Participa_desafio WHERE id_grupo = g.id_grupo
+    ))WHERE id_grupo = 202302;
+
+UPDATE Grupo g SET resultado = (
+    SELECT SUM(nota) FROM juiz_avalia where id_desafio IN(
+        SELECT id_desafio FROM Grupo_Participa_desafio WHERE id_grupo = g.id_grupo
+    ))WHERE id_grupo = 202303;
+
+UPDATE Grupo g SET resultado = (
+    SELECT SUM(nota) FROM juiz_avalia where id_desafio IN(
+        SELECT id_desafio FROM Grupo_Participa_desafio WHERE id_grupo = g.id_grupo
+    ))WHERE id_grupo = 202304;
+
+UPDATE Grupo g SET resultado = (
+    SELECT SUM(nota) FROM juiz_avalia where id_desafio IN(
+        SELECT id_desafio FROM Grupo_Participa_desafio WHERE id_grupo = g.id_grupo
+    ))WHERE id_grupo = 202305;
+
+
+
 select * from Universidade;
 select * from Grupo;
 select * from Inscrito;
+select * from Professor;
+select * from Aplicador;
+select * from Desafio;
+select * from Juiz;
+select * from Nivel_Dificuldade;
+select * from Grupo_Participa_desafio;
+select * from juiz_avalia;
+select * from Aplicado_por;

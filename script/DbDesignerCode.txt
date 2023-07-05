@@ -1,4 +1,3 @@
-
 Professor {
 	Id_professor integer pk
 	id_grupo integer > Grupo.id_grupo
@@ -14,7 +13,7 @@ Grupo {
 	resultado integer(5) def(0)
 }
 
-Incrito {
+Inscrito {
 	id_inscrito integer pk
 	id_grupo integer *> Grupo.id_grupo
 	nome varchar(50)
@@ -52,6 +51,7 @@ aplicado_por {
 juiz_avalia {
 	id_juiz integer pk *> Juiz.id_juiz
 	id_desafio integer pk *> Desafio.id_desafio
+	nota integer(2)
 }
 
 Juiz {
