@@ -34,9 +34,6 @@ Universidade {
 Aplicador {
 	id_aplicador integer pk increments
 	id_universidade integer pk *> Universidade.id_universidade
-	nome varchar(50)
-	email varchar(30)
-	telefone varchar(14)
 }
 
 Desafio {
@@ -73,5 +70,12 @@ Nivel_dificuldade {
 	id_nivelDif integer pk null increments
 	pontos_nivel integer(3)
 	dificuldade varchar(10)
+}
+
+Aplicador_1 {
+	id_aplicador integer pk increments > Aplicador.id_aplicador
+	nome varchar(50)
+	email varchar(30)
+	telefone varchar(14)
 }
 
